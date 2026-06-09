@@ -33,7 +33,7 @@ CRITICAL INSTRUCTION: You must respond ONLY with a valid JSON object matching ex
 }`;
 
     const completion = await groq.chat.completions.create({
-      model: "llama3-70b-8192",
+      model: "llama-3.3-70b-versatile",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: `Predict my trajectory for applying "${bookTitle}".` }
