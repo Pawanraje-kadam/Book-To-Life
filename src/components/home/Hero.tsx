@@ -1,54 +1,62 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+
+const displayFont = { fontFamily: "'Instrument Serif', serif" };
 
 export function Hero() {
   return (
-    <section className="pt-32 pb-20 overflow-hidden">
-      <div className="container">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
-          >
-            <Sparkles className="h-4 w-4" />
-            <span>AI-Powered Life Projections</span>
-          </motion.div>
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6"
-          >
-            Don't just read. <br />
-            <span className="text-primary">Evolve.</span>
-          </motion.h1>
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
+      />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-muted-foreground mb-10 max-w-2xl"
-          >
-            We predict exactly how your life will change if you apply book principles realistically.
-          </motion.p>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-[1] bg-black/40" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link
-              to="/create"
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-transform"
-            >
-              Generate My Projection <ArrowRight className="h-5 w-5" />
-            </Link>
-          </motion.div>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 pt-40 pb-40">
+
+        {/* Badge */}
+        <div className="animate-fade-rise liquid-glass rounded-full px-4 py-1.5 text-xs text-[hsl(240,4%,66%)] mb-10 tracking-widest uppercase">
+          AI-Powered Life Projections
         </div>
+
+        {/* Headline */}
+        <h1
+          className="animate-fade-rise text-5xl sm:text-7xl md:text-8xl font-normal max-w-5xl leading-[0.95] tracking-[-2px] text-white"
+          style={displayFont}
+        >
+          Your next chapter{" "}
+          <em className="not-italic text-[hsl(240,4%,66%)]">starts with</em>
+          <br />
+          <em className="not-italic text-[hsl(240,4%,66%)]">a single book.</em>
+        </h1>
+
+        {/* Subtext */}
+        <p className="animate-fade-rise-delay text-[hsl(240,4%,66%)] text-base sm:text-lg max-w-2xl mt-8 leading-relaxed">
+          Tell us which book you&apos;re reading, your goal, and how much time you have.
+          Our AI predicts exactly how your life will change — 30 days, 6 months, 1 year, 5 years out.
+        </p>
+
+        {/* CTA */}
+        <Link
+          to="/create"
+          className="animate-fade-rise-delay-2 liquid-glass rounded-full px-14 py-5 text-base text-white mt-12 hover:scale-[1.03] transition-transform flex items-center gap-2"
+        >
+          Generate My Projection <ArrowRight className="h-4 w-4" />
+        </Link>
+
+        {/* Scroll hint */}
+        <p className="animate-fade-rise-delay-3 text-xs text-[hsl(240,4%,50%)] mt-16 tracking-widest uppercase">
+          Scroll to explore
+        </p>
       </div>
     </section>
   );
