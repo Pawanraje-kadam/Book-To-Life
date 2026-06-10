@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 export function Home() {
   return (
     <div className="relative">
-      {/* Navbar overlaid on hero */}
+      {/* Navbar floats over the video hero */}
       <div className="absolute top-0 left-0 w-full z-20">
         <Navbar />
       </div>
