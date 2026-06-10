@@ -7,12 +7,10 @@ export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="book-to-life-theme">
       <BrowserRouter>
-        <div className="relative min-h-screen flex flex-col">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/create" element={<Create />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+        </Routes>
       </BrowserRouter>
     </ThemeProvider>
   );
