@@ -1,32 +1,41 @@
-import { BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-50 border-b bg-background/80 backdrop-blur-md">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="bg-primary p-1.5 rounded-lg">
-            <BookOpen className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <span className="font-bold text-xl tracking-tight">Book to Life</span>
+    <nav className="relative z-10 w-full">
+      <div className="flex flex-row items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+        {/* Logo */}
+        <Link
+          to="/"
+          style={{ fontFamily: "'Instrument Serif', serif" }}
+          className="text-3xl tracking-tight text-white no-underline"
+        >
+          Book to Life<sup className="text-xs">®</sup>
         </Link>
-        <div className="flex items-center gap-2 md:gap-4">
-          <Link
-            to="/"
-            className="hidden md:block text-sm font-medium hover:text-primary transition-colors"
-          >
-            How it works
+
+        {/* Nav Links */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link to="/" className="text-sm text-white transition-colors">
+            Home
           </Link>
-          <ThemeToggle />
-          <Link
-            to="/create"
-            className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium hover:opacity-90"
-          >
-            Get Started
+          <Link to="/create" className="text-sm text-[hsl(240,4%,66%)] hover:text-white transition-colors">
+            Generate
+          </Link>
+          <Link to="/" className="text-sm text-[hsl(240,4%,66%)] hover:text-white transition-colors">
+            How It Works
+          </Link>
+          <Link to="/" className="text-sm text-[hsl(240,4%,66%)] hover:text-white transition-colors">
+            About
           </Link>
         </div>
+
+        {/* CTA */}
+        <Link
+          to="/create"
+          className="liquid-glass rounded-full px-6 py-2.5 text-sm text-white hover:scale-[1.03] transition-transform"
+        >
+          Get Started
+        </Link>
       </div>
     </nav>
   );
